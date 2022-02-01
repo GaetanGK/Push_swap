@@ -78,7 +78,7 @@ char	**ft_checker_ope(t_data *data, char **line, char *tmp)
 		free_str(&str);
 	}
 	else
-		ft_sort_check(data, &str);
+		ft_sort_check(data);
 	return (line);
 }
 
@@ -91,8 +91,8 @@ void	ft_checker(t_data *data, char **line)
 	tmp = NULL;
 	line = ft_checker_ope(data, line, tmp);
 	ft_do_ope(data, line, i);
-	ft_sort_check(data, line);
 	ft_free_elem(line);
+	ft_sort_check(data);
 }
 
 int	main(int argc, char	**argv)

@@ -50,15 +50,15 @@ int	ft_stack_size(t_stack *a)
 	return (len);
 }
 
-void	ft_sort_check(t_data *data, char **line)
+void	ft_sort_check(t_data *data)
 {
 	if (ft_issorted(&data->stack_a, data->len) == 1)
 		ft_putstr_fd("OK\n", 1);
 	else
 		ft_putstr_fd("KO\n", 1);
-	free_str(line);
 	free_stack(&data->stack_a);
 	free_stack(&data->stack_b);
+	free_str(&data->line);
 	free(data);
 	exit(1);
 }

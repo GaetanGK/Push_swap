@@ -56,7 +56,7 @@ void		ft_free_elem(char **elem);
 t_stack		*ft_stack_insert(t_data *data, char **elem, t_stack *new);
 long long	my_atoi(const char *str, t_data *data, t_stack *tmp);
 void		ft_add_back(t_stack **head, t_stack *new);
-void		ft_sort_check(t_data *data, char **line);
+void		ft_sort_check(t_data *data);
 int			ft_issorted(t_stack **a, int len);
 int			ft_stack_size(t_stack *a);
 void		free_stack(t_stack **stack);
