@@ -68,10 +68,7 @@ int	main(int argc, char **argv)
 
 	data = NULL;
 	if (argc < 3)
-	{
-		ft_putstr_fd("Error\n", 2);
 		return (1);
-	}
 	else
 	{
 		data = ft_init(data);
