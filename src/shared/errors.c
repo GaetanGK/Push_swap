@@ -29,7 +29,6 @@ int	ft_duplicate_check(char **elem)
 				j++;
 			else if (ft_strcmp(str, elem[j]) == 0)
 			{
-				ft_putstr_fd("Error\n", 2);
 				free_str(&str);
 				return (1);
 			}
@@ -79,17 +78,21 @@ int	ft_alpha_num_check(char **elem)
 
 void	ft_error(t_data *data, t_stack *tmp)
 {
+	if (data->split == 1)
+		ft_free_elem(data->elem);
 	free_stack(&tmp);
 	free_stack(&data->stack_a);
 	free_data(data);
-	exit (1);
+	exit (0);
 }
 
 void	ft_error2(t_data *data, t_stack *tmp)
 {
 	ft_putstr_fd("Error\n", 2);
+	if (data->split == 1)
+		ft_free_elem(data->elem);
 	free_stack(&tmp);
 	free_stack(&data->stack_a);
 	free_data(data);
-	exit (1);
+	exit (0);
 }

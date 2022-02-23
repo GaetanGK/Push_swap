@@ -14,9 +14,9 @@ CHECKER   = checker
 
 PUSH_SWAP   = push_swap
 
-CC	     = gcc $(FLAGS)
+CC	     = clang $(FLAGS)
 
-FLAGS    = #-Wall -Werror -Wextra -fsanitize=address
+FLAGS    = -Wall -Werror -Wextra #-fsanitize=address
 
 CHECKER_SRC = src/checker.c src/shared/ft_init.c \
 							src/shared/checker_utils.c \

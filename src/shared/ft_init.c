@@ -16,7 +16,7 @@ t_data	*ft_init(t_data *data)
 {
 	data = (t_data *)malloc(sizeof(t_data));
 	if (data == NULL)
-		exit(1);
+		exit(0);
 	data->stack_a = NULL;
 	data->stack_b = NULL;
 	data->line = NULL;
@@ -24,5 +24,6 @@ t_data	*ft_init(t_data *data)
 	data->len = 0;
 	data->print = 0;
 	data->color = 0;
+	data->split = 0;
 	return (data);
 }

@@ -26,10 +26,7 @@ t_stack	*ft_stack_insert(t_data *data, char **elem, t_stack *new)
 		new->prev = NULL;
 		new->nbr = my_atoi(elem[i], data, new);
 		if (!(new->nbr >= -2147483648 && new->nbr <= 2147483647))
-		{
-			ft_putstr_fd("Error\n", 2);
-			ft_error(data, new);
-		}
+			ft_error2(data, new);
 		ft_add_back(&data->stack_a, new);
 		new = NULL;
 		i++;

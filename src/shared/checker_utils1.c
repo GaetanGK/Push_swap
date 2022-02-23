@@ -16,7 +16,7 @@ void	ft_free_ope(char **str)
 {
 	ft_free_elem(str);
 	ft_putstr_fd("Error\n", 2);
-	exit(1);
+	exit(0);
 }
 
 int	ft_ope_check(char *elem)

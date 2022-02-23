@@ -20,7 +20,7 @@
 
 typedef struct s_stack
 {
-	long			nbr;
+	long long		nbr;
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }			t_stack;
@@ -35,6 +35,7 @@ typedef struct s_data
 	int				len;
 	int				argc;
 	int				fd;
+	int				split;
 	t_stack			*stack_a;
 	t_stack			*stack_b;
 }			t_data;

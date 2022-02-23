@@ -50,15 +50,14 @@ static long long	operation(const char *str, long lenght,
 		r = r * 10 + str[lenght] - '0';
 		lenght++;
 	}
+	if (lenght > 19)
+		ft_error2(data, tmp);
 	while (str[lenght] != '\0')
 	{
 		if (!(str[lenght] == ' ' || str[lenght] == '\n' || str[lenght] == '\t'
 				|| str[lenght] == '\r' || str[lenght] == '\f'
 				|| str[lenght] == '\v'))
-		{
-			ft_putstr_fd("Error\n", 2);
-			ft_error(data, tmp);
-		}
+			ft_error2(data, tmp);
 		lenght++;
 	}
 	return (r);
@@ -80,17 +79,14 @@ void	ft_bzero(void *s, size_t n)
 
 long long	my_atoi(const char *str, t_data *data, t_stack *tmp)
 {
-	long	len;
-	int		sign;
+	long long	len;
+	int			sign;
 
 	len = 0;
 	sign = 1;
 	if (!((str[0] >= 48 && str[0] <= 57) || str[0] == '-'
 			|| str[0] == '+'))
-	{
-		ft_putstr_fd("Error\n", 2);
-		ft_error(data, tmp);
-	}
+		ft_error2(data, tmp);
 	while (str[len] == ' ' || str[len] == '\n' || str[len] == '\t'
 		|| str[len] == '\r' || str[len] == '\f' || str[len] == '\v')
 		len++;
@@ -100,5 +96,7 @@ long long	my_atoi(const char *str, t_data *data, t_stack *tmp)
 			sign *= -1;
 		len++;
 	}
+	if (sign == -1 && (operation(str, len, data, tmp) == 0))
+		ft_error2(data, tmp);
 	return (sign * (operation(str, len, data, tmp)));
 }

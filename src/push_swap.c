@@ -28,7 +28,10 @@ char	**ft_fill_elem(t_data *data, int argc, char **argv)
 	{
 		data->fd = 1;
 		if (argc == 2)
+		{
+			data->split = 1;
 			data->elem = ft_split(argv[1], ' ');
+		}
 		else
 			data->elem = &argv[1];
 	}
@@ -42,7 +45,7 @@ void	ft_push_swap(t_data *data, int argc, char **argv)
 	tmp = NULL;
 	data->elem = ft_fill_elem(data, argc, argv);
 	if (ft_duplicate_check(data->elem))
-		ft_error(data, tmp);
+		ft_error2(data, tmp);
 	if (ft_alpha_num_check(data->elem))
 		ft_error2(data, tmp);
 	data->stack_a = ft_stack_insert(data, data->elem, tmp);
@@ -51,6 +54,8 @@ void	ft_push_swap(t_data *data, int argc, char **argv)
 		ft_error(data, tmp);
 	data->len = ft_stack_size(data->stack_a);
 	free_stack(&tmp);
+	if (data->len == 1)
+		exit (0);
 	if (data->len < 11)
 		ft_sort_min(&(data->stack_a), &(data->stack_b), data->len, data);
 	else if (data->len > 10 && data->len < 200)
@@ -67,8 +72,8 @@ int	main(int argc, char **argv)
 	t_data	*data;
 
 	data = NULL;
-	if (argc < 3)
-		return (1);
+	if (argc < 2)
+		exit (0);
 	else
 	{
 		data = ft_init(data);
