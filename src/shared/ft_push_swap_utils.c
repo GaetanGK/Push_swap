@@ -25,18 +25,29 @@ size_t	ft_strlen(const char *s)
 int	ft_strcmp(const char *s1, const char *s2)
 {
 	size_t	i;
+	size_t	j;
 
 	i = 0;
+	j = 0;
 	if ((!s1 || !s2))
 		return (-1);
-	while (s1[i] != '\0' && s2[i] != '\0')
-	{
-		if (s1[i] != s2[i])
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	while (s1[i] == '0')
 		i++;
+	if (s1[i] == '\0')
+		i--;
+	while (s2[j] == '0')
+		j++;
+	if (s2[j] == '\0')
+		j--;
+	while (s1[i] != '\0' && s2[j] != '\0')
+	{
+		if (s1[i] != s2[j])
+			return ((unsigned char)s1[i] - (unsigned char)s2[j]);
+		i++;
+		j++;
 	}
-	if (((s1[i] == '\0' && s2[i] != '\0') || (s2[i] == '\0' && s1[i] != '\0')))
-		return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	if (((s1[i] == '\0' && s2[j] != '\0') || (s2[j] == '\0' && s1[i] != '\0')))
+		return ((unsigned char)s1[i] - (unsigned char)s2[j]);
 	return (0);
 }
 
